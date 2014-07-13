@@ -1,4 +1,68 @@
-RECIPES
-["core", "deployment", "devise", "email", "extras", "frontend", "gems", "git", "init", "learn_rails", "locale", "omniauth", "pages", "rails_bootstrap", "rails_devise", "rails_devise_pundit", "rails_foundation", "rails_mailinglist_signup", "rails_omniauth", "rails_signup_download", "railsapps", "readme", "roles", "setup", "tests"]
-PREFERENCES
-{:git=>true, :apps4=>"rails-bootstrap", :announcements=>"mailinglist", :authentication=>false, :authorization=>false, :better_errors=>true, :database=>"default", :deployment=>"none", :devise_modules=>false, :email=>"none", :form_builder=>false, :frontend=>"bootstrap3", :local_env_file=>false, :pry=>false, :quiet_assets=>true, :pages=>"about", :locale=>"none", :dev_webserver=>"webrick", :prod_webserver=>"same", :templates=>"erb", :tests=>"rspec", :continuous_testing=>"guard"}
+My Hrm
+========================
+
+This application was generated with the rails_apps_composer gem:
+https://github.com/RailsApps/rails_apps_composer
+provided by the RailsApps Project:
+http://railsapps.github.io/
+
+________________________
+
+Recipes:
+
+* core
+* deployment
+* devise
+* email
+* extras
+* frontend
+* gems
+* git
+* init
+* learn_rails
+* locale
+* omniauth
+* pages
+* rails_bootstrap
+* rails_devise
+* rails_devise_pundit
+* rails_foundation
+* rails_mailinglist_signup
+* rails_omniauth
+* rails_signup_download
+* railsapps
+* readme
+* roles
+* setup
+* tests
+
+Preferences:
+
+* git: true
+* apps4: rails-bootstrap
+* announcements: mailinglist
+* authentication: false
+* authorization: false
+* better_errors: true
+* database: default
+* deployment: none
+* devise_modules: false
+* email: none
+* form_builder: false
+* frontend: bootstrap3
+* local_env_file: false
+* pry: false
+* quiet_assets: true
+* pages: about
+* locale: none
+* dev_webserver: webrick
+* prod_webserver: same
+* templates: erb
+* tests: rspec
+* continuous_testing: guard
+* rvmrc: false
+* github: true
+
+________________________
+
+License
