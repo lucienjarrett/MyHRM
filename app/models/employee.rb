@@ -6,6 +6,7 @@ class Employee < ActiveRecord::Base
   belongs_to :bank
   belongs_to :location
   belongs_to :position
+  belongs_to :work_schedule
   
 
   has_many :employee_educations , :dependent => :destroy, :autosave =>true, :inverse_of => :employee
@@ -18,9 +19,7 @@ class Employee < ActiveRecord::Base
   has_many :employee_jobs, :dependent => :destroy
 
   accepts_nested_attributes_for :employee_educations, :employee_contacts, :employee_jobs
-  #accepts_nested_attributes_for :employee_contacts
-  #accepts_nested_attributes_for :employee_jobs
-  
+
   
   #image uploads 
   mount_uploader :image, ImageUploader
