@@ -1,0 +1,13 @@
+<%= simple_form_for(@location) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :location_name %>
+    <%= f.input :is_active %>
+		<%= f.association :company, label_method: :company_name, value_method: :id, include_blank: false, prompt: "Choose a Company" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

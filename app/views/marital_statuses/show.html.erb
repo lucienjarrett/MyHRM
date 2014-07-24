@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @marital_status.name %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @marital_status.is_active %>
+</p>
+
+<%= link_to 'Edit', edit_marital_status_path(@marital_status) %> |
+<%= link_to 'Back', marital_statuses_path %>

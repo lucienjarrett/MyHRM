@@ -1,0 +1,27 @@
+<h1>Listing work_schedules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Is active</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @work_schedules.each do |work_schedule| %>
+      <tr>
+        <td><%= work_schedule.name %></td>
+        <td><%= work_schedule.is_active %></td>
+        <td><%= link_to 'Show', work_schedule %></td>
+        <td><%= link_to 'Edit', edit_work_schedule_path(work_schedule) %></td>
+        <td><%= link_to 'Destroy', work_schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Work schedule', new_work_schedule_path %>

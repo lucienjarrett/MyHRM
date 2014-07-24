@@ -1,0 +1,12 @@
+<%= simple_form_for(@position) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :position_name %>
+    <%= f.input :is_active %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

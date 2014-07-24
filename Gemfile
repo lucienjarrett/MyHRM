@@ -12,6 +12,13 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'high_voltage'
+gem 'simple_form'
+#https://github.com/code-and-effect/effective_assets
+gem "rmagick", :require => false #http://railscasts.com/episodes/253-carrierwave-file-uploads
+gem "carrierwave"
+gem 'wicked'
+
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_20]
@@ -24,6 +31,8 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
+  gem "awesome_print"
+  gem 'wicked'
 end
 group :development, :test do
   gem 'factory_girl_rails'
