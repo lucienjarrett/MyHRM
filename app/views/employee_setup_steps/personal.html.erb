@@ -1,0 +1,24 @@
+		<fieldset>
+			<legend>Personal Information</legend>
+		<%= render layout: 'form' do |f| %>
+		<%= f.input :image, as: :file %>    
+		<%= f.input :first_name, placeholder: 'John' %>
+    <%= f.input :last_name, placeholder: 'Doe' %>  
+		<%= f.input :middle_name, placeholder: 'Omar' %>
+		<%= f.collection_radio_buttons :gender, [['male', 'Male'] ,['female', 'Female']], :first, :last %><br>
+    <%= f.date_field :dob, as: :date %>
+		<%= f.association :marital_status, label_method: :name, value_method: :id, include_blank: false, prompt: "Choose a Marital Status" %>
+		<%= f.input :mobile_phone %>
+	  <%= f.association :bank, label_method: :bank_name, value_method: :id, include_blank: false, prompt: "Choose a Bank" %>
+		<div id="hide_bank">
+		<%= f.input :bank_account_number,  placeholder: 'bank account number'%>
+	  </div>
+		<%= f.input :trn, placeholder: '1234567890' %>
+		<%= f.input :nis,  placeholder: 'C78956' %>
+		<%= f.input :email , placeholder: 'user@domain.com'%>
+			<%= f.input :home_address_1 %>
+			<%= f.input :home_address_2 %>	
+			<%= f.input :city %>
+			<%= f.association :parish, label_method: :parish_name, value_method: :id, include_blank: false, prompt: "Choose a Parish" %>
+			<% end %>
+	 </fieldset>

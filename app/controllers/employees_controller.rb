@@ -1,6 +1,8 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
+  
 
+  
   # GET /employees
   # GET /employees.json
   def index
@@ -10,8 +12,7 @@ class EmployeesController < ApplicationController
   # GET /employees/1
   # GET /employees/1.json
   def show
-   
-   
+
   end
 
   # GET /employees/new
@@ -19,7 +20,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.new
     @employee_educations = @employee.employee_educations.build
     @employee.employee_jobs.build
-    @employee_contacts = @employee.employee_contacts.build
+    @employee_contacts = @employee.employee_contacts.build    
 end
 
   # GET /employees/1/edit

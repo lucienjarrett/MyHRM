@@ -1,0 +1,16 @@
+	 <fieldset>
+		 <legend>Company Assignment Information</legend>
+		 <%= render layout: 'form' do |f| %>
+				<%= f.association :company, label_method: :company_name, value_method: :id, include_blank: false, prompt: "Choose a Company" %>
+				<div id="hide_me">
+				<%= f.input :location do %>				
+				<%= f.grouped_collection_select :location_id, Company.order(:company_name), :locations, :company_name, :id, :location_name, include_blank: false, prompt: "Choose a location" %>
+				<% end %>
+				</div>
+				<%= f.input :employee_number , placeholder: 'employee number'%>
+				<%= f.association :department, label_method: :department_name, value_method: :id, include_blank: false, prompt: "Choose a Department" %>
+				<%= f.association :position, label_method: :position_name, value_method: :id, include_blank: false, prompt: "Choose a position"%>
+				<%= f.association :work_schedule, label_method: :name, value_method: :id, include_blank: false, prompt: "Choose a Work Schedule"%>
+				<%= f.input :work_phone%>	
+				<% end %>
+		</fieldset>	

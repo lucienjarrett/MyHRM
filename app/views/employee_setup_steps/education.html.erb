@@ -1,0 +1,9 @@
+	<fieldset>
+			<legend>Education & Qualifications Information</legend>
+			<%= render layout: 'form' do |f| %>
+		<%= f.simple_fields_for :employee_educations do |emp_edu_form| %>
+			<%= render 'employee_education_fields' , f: emp_edu_form  %>
+		<% end %>
+		<%= link_to_add_fields "Add Education", f, :employee_educations %>
+		<% end %>
+	</fieldset>

@@ -1,0 +1,8 @@
+<fieldset>
+<%= f.association :education, label_method: :name, value_method: :id, include_blank: false %>
+<%= f.input :school_attended %>
+<%= f.input :date_from %>
+<%= f.input :date_to %>
+<%= f.hidden_field :_destroy %>
+<%= link_to "remove", '#', class: "remove_fields" %>
+</fieldset>

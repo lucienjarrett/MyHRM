@@ -1,0 +1,10 @@
+	<fieldset>
+		<legend>Employment History</legend>
+		<%= render layout: 'form' do |f| %>
+		<%= f.simple_fields_for :employee_jobs do | j |%>
+			<%= render 'employee_job_fields', f: j %>
+		<% end %>
+		<%= link_to_add_fields "Add Jobs", f, :employee_jobs %>
+		<% end %>
+	</fieldset>
+	
