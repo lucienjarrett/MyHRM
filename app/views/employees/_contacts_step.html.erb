@@ -1,0 +1,13 @@
+<fieldset>
+<legend>Contact Information</legend>
+<%= f.simple_fields_for :employee_zcontacts do | f |%>
+<%= f.association :relationship, label_method: :relationship_name, value_method: :id, include_blank: false, prompt: "Choose Relationship"%>
+<%= f.input :first_name %>
+<%= f.input :last_name %>
+<%= f.input :phone_number %>
+<%= f.input :is_emergency_contact %>
+<%= f.hidden_field :_destroy %>
+<%= link_to "remove", '#', class: "remove_fields" %>
+<% end %>
+<%= link_to_add_fields "Add Contacts", f, :employee_zcontacts %>
+</fieldset>

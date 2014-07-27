@@ -1,4 +1,6 @@
 class Employee < ActiveRecord::Base 
+  attr_writer :current_step 
+  
   belongs_to :marital_status
   belongs_to :department
   belongs_to :company
@@ -8,17 +10,19 @@ class Employee < ActiveRecord::Base
   belongs_to :position
   belongs_to :work_schedule
   
-
-  has_many :employee_educations , :dependent => :destroy, :autosave =>true, :inverse_of => :employee
-  has_many :educations, :through => :employee_educations
+ 
   
-  has_many :employee_contacts , :dependent => :destroy, :autosave =>true, :inverse_of => :employee
-  has_many :relationships, :through => :employee_contacts
+
+  has_many :employee_zeducations , :dependent => :destroy, :autosave =>true, :inverse_of => :employee
+  has_many :educations, :through => :employee_zeducations
+  
+  has_many :employee_zcontacts , :dependent => :destroy, :autosave =>true, :inverse_of => :employee
+  has_many :relationships, :through => :employee_zcontacts
   
   
   has_many :employee_jobs, :dependent => :destroy
 
-  accepts_nested_attributes_for :employee_educations, :employee_contacts, :employee_jobs
+  accepts_nested_attributes_for :employee_zeducations, :employee_zcontacts, :employee_jobs
 
   
   #image uploads 
@@ -35,5 +39,36 @@ class Employee < ActiveRecord::Base
     self.first_name = split.first
     self.last_name = split.last
   end
-
+  
+  def current_step 
+    @current_step || step.first
+  end 
+  
+  def step
+    %w[personal company]
+  end 
+  
+  def next_step
+    self.current_step = step[step.index(current_step)+1] 
+  end 
+  
+  def previous_step
+    self.current_step = step[step.index(current_step)-1] 
+  end 
+  
+  def first_step?
+    current_step == step.first
+  end 
+  
+  
+  def last_step?
+    current_step == step.last
+  end
+  
+  def all_valid?
+    step.all? do |step|
+      self.current_step = step
+      valid?
+    end
+  end  
 end

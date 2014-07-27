@@ -1,6 +1,5 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
-  
 
   
   # GET /employees
@@ -12,15 +11,17 @@ class EmployeesController < ApplicationController
   # GET /employees/1
   # GET /employees/1.json
   def show
-
+    @employee = Employee.find(params[:id])
   end
 
   # GET /employees/new
   def new
-    @employee = Employee.new
-    @employee_educations = @employee.employee_educations.build
-    @employee.employee_jobs.build
-    @employee_contacts = @employee.employee_contacts.build    
+    session[:employee_params] ||= {}
+    @employee = Employee.new(session[:employee_params]) 
+    @employee.current_step = session[:employee_step]
+    #@employee_educations = @employee.employee_educations.build
+   # @employee.employee_jobs.build
+   # @employee_zcontacts = @employee.employee_zcontacts.build    
 end
 
   # GET /employees/1/edit
@@ -30,20 +31,31 @@ end
   # POST /employees
   # POST /employees.json
   def create
-    @employee = Employee.new(employee_params)
-    respond_to do |format|    
-     if @employee.save
-        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
-        format.json { render :show, status: :created, location: @employee }
+    session[:employee_params].deep_merge!(params[:employee]) if params[:employee]
+    @employee = Employee.new(session[:employee_params])
+    @employee.current_step = session[:employee_step]
+    if @employee.valid?
+      if params[:back_button]
+        @employee.previous_step 
+      elsif @employee.last_step?
+        @employee.save if @employee.all_valid?
       else
-        format.html { render :new }
-        format.json { render json: @employee.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+        @employee.next_step 
+      end   
+    session[:employee_step] = @employee.current_step
+  end 
+  if @employee.new_record?
+    render "new"
+  else  
+  session[:employee_step] = session[:employee_params] = nil
+  flash[:notice] = 'Employee was successfully created.'
+  redirect_to @employee
+  end    
+end 
 
   # PATCH/PUT /employees/1
   # PATCH/PUT /employees/1.json
+=begin 
   def update
     respond_to do |format|
       if @employee.update(employee_params)
@@ -56,7 +68,7 @@ end
       end
     end
   end
-
+=end 
   # DELETE /employees/1
   # DELETE /employees/1.json
   def destroy
@@ -80,12 +92,13 @@ end
       :first_name, :last_name, :middle_name, :gender, :dob, 
       :marital_status_id, :trn, :nis, :email, :image, :location_id, :company_id, :bank_id, :parish_id,
       :home_address_1, :home_address_2, :bank_account_number, :employee_number, :department_id, :city, 
-      :mobile_phone, :work_phone, :position_id,   
+      :mobile_phone, :work_phone, :position_id,  :work_schedule_id, 
       :employee_jobs_attributes => [:id, :employer_name, :date_from, :date_to, :_destroy],  
-      :employee_educations_attributes => [:id, :date_from, :date_to, :education_id, :school_attended, :_destroy],
-      :employee_contacts_attributes => [:id, :relationship_id, :first_name, :last_name, :phone_number, :is_emergency_contact, :_destroy]
+      :employee_zeducations_attributes => [:id, :date_from, :date_to, :education_id, :school_attended, :_destroy],
+      :employee_zcontacts_attributes => [:id, :relationship_id, :first_name, :last_name, :phone_number, :is_emergency_contact, :_destroy]
       )
 
       
     end
 end
+

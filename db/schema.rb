@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724051032) do
+ActiveRecord::Schema.define(version: 20140727050603) do
 
   create_table "banks", force: true do |t|
     t.string   "bank_name"
@@ -41,19 +41,6 @@ ActiveRecord::Schema.define(version: 20140724051032) do
     t.datetime "updated_at"
   end
 
-  create_table "employee_contacts", force: true do |t|
-    t.integer  "employee_id"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "phone_number"
-    t.boolean  "is_emergency_contact"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "relationship_id"
-  end
-
-  add_index "employee_contacts", ["relationship_id"], name: "index_employee_contacts_on_relationship_id"
-
   create_table "employee_educations", force: true do |t|
     t.integer  "employee_id"
     t.integer  "education_id"
@@ -73,6 +60,32 @@ ActiveRecord::Schema.define(version: 20140724051032) do
     t.date     "date_to"
   end
 
+  create_table "employee_zcontacts", force: true do |t|
+    t.integer  "employee_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone_number"
+    t.boolean  "is_emergency_contact"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "relationship_id"
+  end
+
+  add_index "employee_zcontacts", ["relationship_id"], name: "index_employee_zcontacts_on_relationship_id"
+
+<<<<<<< Local Changes
+  create_table "employee_zeducation", force: true do |t|
+    t.integer  "employee_id"
+    t.integer  "education_id"
+    t.string   "school_attended"
+    t.date     "date_from"
+    t.date     "date_to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+=======
+>>>>>>> External Changes
   create_table "employees", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -100,6 +113,7 @@ ActiveRecord::Schema.define(version: 20140724051032) do
     t.string   "bank_account_number"
     t.integer  "position_id"
     t.integer  "work_schedule_id"
+    t.string   "status"
   end
 
   add_index "employees", ["work_schedule_id"], name: "index_employees_on_work_schedule_id"

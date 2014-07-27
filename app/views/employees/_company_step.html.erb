@@ -1,6 +1,5 @@
-	 <fieldset>
+<fieldset>
 		 <legend>Company Assignment Information</legend>
-		 <%= render layout: 'form' do |f| %>
 				<%= f.association :company, label_method: :company_name, value_method: :id, include_blank: false, prompt: "Choose a Company" %>
 				<div id="hide_me">
 				<%= f.input :location do %>				
@@ -12,5 +11,4 @@
 				<%= f.association :position, label_method: :position_name, value_method: :id, include_blank: false, prompt: "Choose a position"%>
 				<%= f.association :work_schedule, label_method: :name, value_method: :id, include_blank: false, prompt: "Choose a Work Schedule"%>
 				<%= f.input :work_phone%>	
-				<% end %>
 		</fieldset>	

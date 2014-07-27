@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   resources :locations
   resources :parishes
   resources :marital_statuses
-  resources :employees  
-  resources :employee_setup_steps
+  resources :employees   
   root to: 'visitors#index'
 end

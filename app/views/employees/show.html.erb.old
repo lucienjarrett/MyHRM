@@ -1,0 +1,14 @@
+
+
+<p>
+  <strong>Shipping Name:</strong>
+  <%=h @employee.first_name %>
+</p>
+<p>
+  <strong>Billing Name:</strong>
+  <%=h @employee.last_name %>
+</p>
+
+<p>
+  <%= link_to "View All", employees_path %>
+</p>
