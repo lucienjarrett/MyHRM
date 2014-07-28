@@ -1,12 +1,11 @@
 <fieldset>
 		<legend>Employment History</legend>
-		<%= f.simple_fields_for :employee_jobs do | f |%>
-			
+		<%= f.simple_fields_for :employee_jobs, EmployeeJob.new do | f |%>	
 			<%= f.input :employer_name %>
 			<%= f.input :date_from %>
 			<%= f.input :date_to %>
 			<%= f.hidden_field :_destroy %>
-			<%= link_to "remove", '#', class: "remove_fields" %>
+			<%# link_to "remove", '#', class: "remove_step" %>
 		<% end %>
-		<%= link_to_add_fields "Add Jobs", f, :employee_jobs %>
+		<%# link_to_add_fields "Add Jobs", f, :employee_jobs %>
 	</fieldset>

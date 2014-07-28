@@ -40,33 +40,35 @@ class Employee < ActiveRecord::Base
     self.last_name = split.last
   end
   
+  
+#For multisetp form implementation  
   def current_step 
-    @current_step || step.first
+    @current_step || steps.first
   end 
   
-  def step
-    %w[personal company]
+  def steps
+    %w[personal employment contacts]
   end 
   
   def next_step
-    self.current_step = step[step.index(current_step)+1] 
+    self.current_step = steps[steps.index(current_step)+1] 
   end 
   
   def previous_step
-    self.current_step = step[step.index(current_step)-1] 
+    self.current_step = steps[steps.index(current_step)-1] 
   end 
   
   def first_step?
-    current_step == step.first
+    current_step == steps.first
   end 
   
   
   def last_step?
-    current_step == step.last
+    current_step == steps.last
   end
   
   def all_valid?
-    step.all? do |step|
+    steps.all? do |step|
       self.current_step = step
       valid?
     end

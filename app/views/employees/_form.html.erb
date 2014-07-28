@@ -1,7 +1,8 @@
 		
-<%= simple_form_for @employee, :input_html => { :id => 'EmployeeSetUpForm' } do |f| %>
+<%= simple_form_for @employee, :html => {:multipart => true} do |f| %>
   <%= f.error_notification %>
 	<%= render '#{@employee.current_step}_step', :locals => { :f => f } %>
+	<%= rails.logger( '#{@employee.current_step}_step'), :locals => { :f => f } %>
 	<div class="form-actions">
    <%= f.button :submit, :class => 'btn btn-primary' %>
   </div>

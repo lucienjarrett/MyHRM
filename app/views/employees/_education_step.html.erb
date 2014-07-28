@@ -1,6 +1,6 @@
 <fieldset>
 			<legend>Education & Qualifications Information</legend>
-		<%= f.simple_fields_for :employee_zeducations do |f| %>
+		<%= f.simple_fields_for :employee_zeducations, EmployeeZeducation.new  do |f| %>
 			<%= f.association :education, label_method: :name, value_method: :id, include_blank: false %>
 			<%= f.input :school_attended %>
 			<%= f.input :date_from %>
@@ -8,5 +8,5 @@
 			<%= f.hidden_field :_destroy %>
 			<%= link_to "remove", '#', class: "remove_fields" %>
 		<% end %>
-		<%= link_to_add_fields "Add Education", f, :employee_zeducations %>
+		<%# link_to_add_fields "Add Education", f, :employee_zeducations %>
 	</fieldset>

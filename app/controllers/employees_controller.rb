@@ -19,10 +19,9 @@ class EmployeesController < ApplicationController
     session[:employee_params] ||= {}
     @employee = Employee.new(session[:employee_params]) 
     @employee.current_step = session[:employee_step]
-    #@employee_educations = @employee.employee_educations.build
-   # @employee.employee_jobs.build
-   # @employee_zcontacts = @employee.employee_zcontacts.build    
-end
+    
+  end 
+
 
   # GET /employees/1/edit
   def edit
@@ -34,6 +33,7 @@ end
     session[:employee_params].deep_merge!(params[:employee]) if params[:employee]
     @employee = Employee.new(session[:employee_params])
     @employee.current_step = session[:employee_step]
+    
     if @employee.valid?
       if params[:back_button]
         @employee.previous_step 
