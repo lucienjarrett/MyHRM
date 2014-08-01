@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727050603) do
+ActiveRecord::Schema.define(version: 20140801174401) do
 
   create_table "banks", force: true do |t|
     t.string   "bank_name"
@@ -41,16 +41,6 @@ ActiveRecord::Schema.define(version: 20140727050603) do
     t.datetime "updated_at"
   end
 
-  create_table "employee_educations", force: true do |t|
-    t.integer  "employee_id"
-    t.integer  "education_id"
-    t.string   "school_attended"
-    t.date     "date_from"
-    t.date     "date_to"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "employee_jobs", force: true do |t|
     t.string   "employer_name"
     t.integer  "employee_id"
@@ -73,8 +63,7 @@ ActiveRecord::Schema.define(version: 20140727050603) do
 
   add_index "employee_zcontacts", ["relationship_id"], name: "index_employee_zcontacts_on_relationship_id"
 
-<<<<<<< Local Changes
-  create_table "employee_zeducation", force: true do |t|
+  create_table "employee_zeducations", force: true do |t|
     t.integer  "employee_id"
     t.integer  "education_id"
     t.string   "school_attended"
@@ -84,8 +73,6 @@ ActiveRecord::Schema.define(version: 20140727050603) do
     t.datetime "updated_at"
   end
 
-=======
->>>>>>> External Changes
   create_table "employees", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -148,6 +135,13 @@ ActiveRecord::Schema.define(version: 20140727050603) do
 
   create_table "relationships", force: true do |t|
     t.string   "relationship_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

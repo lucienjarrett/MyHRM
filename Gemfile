@@ -16,7 +16,8 @@ gem 'simple_form'
 #https://github.com/code-and-effect/effective_assets
 gem "rmagick", :require => false #http://railscasts.com/episodes/253-carrierwave-file-uploads
 gem "carrierwave"
-gem 'wicked'
+gem "bcrypt-ruby", :require => "bcrypt"
+
 
 
 group :development do
@@ -33,6 +34,7 @@ group :development do
   gem 'rb-inotify', :require=>false
   gem "awesome_print"
   gem 'wicked'
+ 
 end
 group :development, :test do
   gem 'factory_girl_rails'
