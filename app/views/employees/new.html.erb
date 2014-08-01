@@ -1,12 +1,4 @@
-		
-<%= simple_form_for @employee, :html => {:multipart => true} do |f| %>
-  <%= f.error_notification %>
-	
-	<%= render  "#{@employee.current_step}_step",  :f => f  %>
-
-	<div class="form-actions">
-    <%= f.button :submit, 'Next', :class => 'btn-primary' %>
-		<%= f.button :submit, 'Back', :name => 'back_button' unless @employee.first_step? %>
-  </div>
-<% end %>
+<h1>New Employees</h1>
+<%= render 'form' %>
+<% link_to 'Back', employees_path %>
 

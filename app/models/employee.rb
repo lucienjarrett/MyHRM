@@ -1,6 +1,5 @@
 class Employee < ActiveRecord::Base 
-  attr_writer :current_step 
-  
+
   belongs_to :marital_status
   belongs_to :department
   belongs_to :company
@@ -10,9 +9,9 @@ class Employee < ActiveRecord::Base
   belongs_to :position
   belongs_to :work_schedule
   
- 
-  
-
+=begin
+  validates :first_name, :last_name, :middle_name, :gender, :trn, :nis, :presence => true
+=end 
   has_many :employee_zeducations , :dependent => :destroy, :autosave =>true, :inverse_of => :employee
   has_many :educations, :through => :employee_zeducations
   
@@ -22,7 +21,9 @@ class Employee < ActiveRecord::Base
   
   has_many :employee_jobs, :dependent => :destroy
 
-  accepts_nested_attributes_for :employee_zeducations, :employee_zcontacts, :employee_jobs
+  accepts_nested_attributes_for :employee_zeducations, :reject_if => :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :employee_zcontacts, :reject_if => :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :employee_jobs, :reject_if => :all_blank, allow_destroy: true
 
   
   #image uploads 
@@ -39,7 +40,11 @@ class Employee < ActiveRecord::Base
     self.first_name = split.first
     self.last_name = split.last
   end
-  
+=begin   
+  include MultiStepModel
+  def self.total_steps
+     5
+   end
   
 #For multisetp form implementation  
   def current_step 
@@ -47,7 +52,7 @@ class Employee < ActiveRecord::Base
   end 
   
   def steps
-    %w[personal employment contacts]
+    %w[personal company education]
   end 
   
   def next_step
@@ -72,5 +77,6 @@ class Employee < ActiveRecord::Base
       self.current_step = step
       valid?
     end
-  end  
+  end 
+=end    
 end

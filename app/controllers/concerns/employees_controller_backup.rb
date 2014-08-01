@@ -16,13 +16,15 @@ class EmployeesController < ApplicationController
 
   # GET /employees/new
   def new
-   
-    @employee = Employee.new 
-    @employee_jobs = @employee.employee_jobs.build 
-    @employee_zeducations = @employee.employee_zeducations 
-    @employee_contacts = @employee.employee_zcontacts.build 
-    
-    
+    session[:employee_params] ||= {}
+    @employee = Employee.new(session[:employee_params]) 
+    @employee.current_step = session[:employee_step]
+
+    3.times do 
+   @employee.employee_jobs.build
+   @employee.employee_zeducations.build
+   @employee.employee_zcontacts.build
+ end
   end 
 
 
@@ -33,17 +35,29 @@ class EmployeesController < ApplicationController
   # POST /employees
   # POST /employees.json
   def create
-    @employee = Employee.new(employee_params)
-    respond_to do |format|
-      if @employee.save
-        format.html { redirect_to @employee, notice: 'Education was successfully created.' }
-        format.json { render :show, status: :created, location: @education }
+    session[:employee_params].deep_merge!(params[:employee]) if params[:employee]
+    @employee = Employee.new(session[:employee_params])
+    @employee.current_step = session[:employee_step]
+    
+
+    if @employee.valid?
+      if params[:back_button]
+        @employee.previous_step 
+      elsif @employee.last_step?
+        @employee.save if @employee.all_valid?
       else
-        format.html { render :new }
-        format.json { render json: @employee.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+        @employee.next_step 
+      end   
+    session[:employee_step] = @employee.current_step
+  end 
+  if @employee.new_record?
+    render "new"
+  else  
+  session[:employee_step] = session[:employee_params] = nil
+  flash[:notice] = 'Employee was successfully created.'
+  redirect_to @employee
+  end    
+end 
 
   # PATCH/PUT /employees/1
   # PATCH/PUT /employees/1.json
@@ -84,7 +98,7 @@ class EmployeesController < ApplicationController
       :first_name, :last_name, :middle_name, :gender, :dob, 
       :marital_status_id, :trn, :nis, :email, :image, :location_id, :company_id, :bank_id, :parish_id,
       :home_address_1, :home_address_2, :bank_account_number, :employee_number, :department_id, :city, 
-      :mobile_phone, :work_phone, :position_id,  :work_schedule_id, 
+      :mobile_phone, :work_phone, :position_id,  :work_schedule_id, :current_step,
       :employee_jobs_attributes => [:id, :employer_name, :date_from, :date_to, :_destroy],  
       :employee_zeducations_attributes => [:id, :date_from, :date_to, :education_id, :school_attended, :_destroy],
       :employee_zcontacts_attributes => [:id, :relationship_id, :first_name, :last_name, :phone_number, :is_emergency_contact, :_destroy]

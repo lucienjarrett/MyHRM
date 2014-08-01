@@ -11,7 +11,7 @@
   <%= f.association :bank, label_method: :bank_name, value_method: :id, include_blank: false, prompt: "Choose a Bank" %>
 	<div id="hide_bank">
 	<%= f.input :bank_account_number,  placeholder: 'bank account number'%>
-  </div>
+</div>
 	<%= f.input :trn, placeholder: '1234567890' %>
 	<%= f.input :nis,  placeholder: 'C78956' %>
 	<%= f.input :email , placeholder: 'user@domain.com'%>
