@@ -1,0 +1,27 @@
+<h1>Listing review_types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Review name</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @review_types.each do |review_type| %>
+      <tr>
+        <td><%= review_type.review_name %></td>
+        <td><%= review_type.status %></td>
+        <td><%= link_to 'Show', review_type %></td>
+        <td><%= link_to 'Edit', edit_review_type_path(review_type) %></td>
+        <td><%= link_to 'Destroy', review_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Review type', new_review_type_path %>

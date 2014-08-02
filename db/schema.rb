@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140802001801) do
+ActiveRecord::Schema.define(version: 20140802012040) do
 
   create_table "banks", force: true do |t|
     t.string   "bank_name"
@@ -71,6 +71,25 @@ ActiveRecord::Schema.define(version: 20140802001801) do
     t.datetime "updated_at"
     t.date     "date_from"
     t.date     "date_to"
+  end
+
+  create_table "employee_reviews", force: true do |t|
+    t.integer  "review_type_id"
+    t.float    "score"
+    t.date     "review_date"
+    t.string   "comments"
+    t.string   "reviewed_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "employee_vacations", force: true do |t|
+    t.integer  "employee_id"
+    t.date     "date_from"
+    t.date     "date_to"
+    t.integer  "vacation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "employees", force: true do |t|
@@ -139,9 +158,23 @@ ActiveRecord::Schema.define(version: 20140802001801) do
     t.datetime "updated_at"
   end
 
+  create_table "review_types", force: true do |t|
+    t.string   "review_name"
+    t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vacations", force: true do |t|
+    t.string   "vacation_name"
+    t.boolean  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -21,8 +21,6 @@ class EmployeesController < ApplicationController
     @employee_jobs = @employee.employee_jobs.build 
     @employee_educations = @employee.employee_educations.build 
     @employee_contacts = @employee.employee_contacts.build 
-    
-    
   end 
 
 
