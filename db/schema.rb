@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140801174401) do
+ActiveRecord::Schema.define(version: 20140802001801) do
 
   create_table "banks", force: true do |t|
     t.string   "bank_name"
@@ -41,16 +41,7 @@ ActiveRecord::Schema.define(version: 20140801174401) do
     t.datetime "updated_at"
   end
 
-  create_table "employee_jobs", force: true do |t|
-    t.string   "employer_name"
-    t.integer  "employee_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.date     "date_from"
-    t.date     "date_to"
-  end
-
-  create_table "employee_zcontacts", force: true do |t|
+  create_table "employee_contacts", force: true do |t|
     t.integer  "employee_id"
     t.string   "first_name"
     t.string   "last_name"
@@ -61,9 +52,9 @@ ActiveRecord::Schema.define(version: 20140801174401) do
     t.integer  "relationship_id"
   end
 
-  add_index "employee_zcontacts", ["relationship_id"], name: "index_employee_zcontacts_on_relationship_id"
+  add_index "employee_contacts", ["relationship_id"], name: "index_employee_contacts_on_relationship_id"
 
-  create_table "employee_zeducations", force: true do |t|
+  create_table "employee_educations", force: true do |t|
     t.integer  "employee_id"
     t.integer  "education_id"
     t.string   "school_attended"
@@ -71,6 +62,15 @@ ActiveRecord::Schema.define(version: 20140801174401) do
     t.date     "date_to"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "employee_jobs", force: true do |t|
+    t.string   "employer_name"
+    t.integer  "employee_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "date_from"
+    t.date     "date_to"
   end
 
   create_table "employees", force: true do |t|

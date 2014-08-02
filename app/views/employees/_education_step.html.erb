@@ -1,9 +1,9 @@
 <fieldset>
 			<legend>Education & Qualifications Information</legend>
-		  <%= f.simple_fields_for :employee_zeducations  do |edu| %>
+		  <%= f.simple_fields_for :employee_educations  do |edu| %>
 			<%= edu.hidden_field :_destroy %>
 			<%= link_to "remove", '#', class: "remove_fields" %>
-			<%= render 'employee_zeducation_fields', :f => edu %>
+			<%= render 'employee_education_fields', :f => edu %>
 			<% end %>
 			<%= link_to_add_fields "Add Education", f, :employee_zeducations %>
 	</fieldset>

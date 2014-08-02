@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authorize, only: [:edit, :update]
   
   # GET /employees
   # GET /employees.json
@@ -19,8 +19,8 @@ class EmployeesController < ApplicationController
    
     @employee = Employee.new 
     @employee_jobs = @employee.employee_jobs.build 
-    @employee_zeducations = @employee.employee_zeducations 
-    @employee_contacts = @employee.employee_zcontacts.build 
+    @employee_educations = @employee.employee_educations.build 
+    @employee_contacts = @employee.employee_contacts.build 
     
     
   end 
@@ -86,8 +86,8 @@ class EmployeesController < ApplicationController
       :home_address_1, :home_address_2, :bank_account_number, :employee_number, :department_id, :city, 
       :mobile_phone, :work_phone, :position_id,  :work_schedule_id, 
       :employee_jobs_attributes => [:id, :employer_name, :date_from, :date_to, :_destroy],  
-      :employee_zeducations_attributes => [:id, :date_from, :date_to, :education_id, :school_attended, :_destroy],
-      :employee_zcontacts_attributes => [:id, :relationship_id, :first_name, :last_name, :phone_number, :is_emergency_contact, :_destroy]
+      :employee_educations_attributes => [:id, :date_from, :date_to, :education_id, :school_attended, :_destroy],
+      :employee_contacts_attributes => [:id, :relationship_id, :first_name, :last_name, :phone_number, :is_emergency_contact, :_destroy]
       )
 
       

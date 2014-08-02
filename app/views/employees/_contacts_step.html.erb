@@ -1,10 +1,10 @@
 <fieldset>
 <legend>Contact Information</legend>
-<%= f.simple_fields_for :employee_zcontacts do | contact |%>
-<%= debug(@employee_zcontacts)%>
-<%= render 'employee_zcontact_fields', f: contact %>
+<%= f.simple_fields_for :employee_contacts do | contact |%>
+<%= debug(@employee_contacts)%>
+<%= render 'employee_contact_fields', f: contact %>
 <% link_to "remove", '#', class: "remove_fields" %>
 <% end %>
-<%= link_to_add_fields "Add Contacts", f, :employee_zcontacts %>
+<%= link_to_add_fields "Add Contacts", f, :employee_contacts %>
 </fieldset>
 

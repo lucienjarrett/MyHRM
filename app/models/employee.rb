@@ -12,17 +12,17 @@ class Employee < ActiveRecord::Base
 =begin
   validates :first_name, :last_name, :middle_name, :gender, :trn, :nis, :presence => true
 =end 
-  has_many :employee_zeducations , :dependent => :destroy, :autosave =>true, :inverse_of => :employee
-  has_many :educations, :through => :employee_zeducations
+  has_many :employee_educations , :dependent => :destroy, :autosave =>true, :inverse_of => :employee
+  has_many :educations, :through => :employee_educations
   
-  has_many :employee_zcontacts , :dependent => :destroy, :autosave =>true, :inverse_of => :employee
-  has_many :relationships, :through => :employee_zcontacts
+  has_many :employee_contacts , :dependent => :destroy, :autosave =>true, :inverse_of => :employee
+  has_many :relationships, :through => :employee_contacts
   
   
   has_many :employee_jobs, :dependent => :destroy
 
-  accepts_nested_attributes_for :employee_zeducations, :reject_if => :all_blank, allow_destroy: true
-  accepts_nested_attributes_for :employee_zcontacts, :reject_if => :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :employee_educations, :reject_if => :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :employee_contacts, :reject_if => :all_blank, allow_destroy: true
   accepts_nested_attributes_for :employee_jobs, :reject_if => :all_blank, allow_destroy: true
 
   
