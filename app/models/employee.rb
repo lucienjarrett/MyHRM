@@ -35,7 +35,8 @@ class Employee < ActiveRecord::Base
   has_many :relationships, :through => :employee_contacts
   
   has_many :employee_jobs, :dependent => :destroy
-
+  has_many :employee_salaries, :dependent => :destroy
+  
 
   accepts_nested_attributes_for :employee_reviews, :reject_if => :all_blank, allow_destroy: true
   accepts_nested_attributes_for :employee_educations, :reject_if => :all_blank, allow_destroy: true
@@ -43,8 +44,12 @@ class Employee < ActiveRecord::Base
   accepts_nested_attributes_for :employee_jobs, :reject_if => :all_blank, allow_destroy: true
   accepts_nested_attributes_for :employee_vacations, :reject_if => :all_blank, allow_destroy: true
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+>>>>>>> develope
+=======
+  accepts_nested_attributes_for :employee_salaries, :reject_if => :all_blank, allow_destroy: true
 >>>>>>> develope
   
   #image uploads 
