@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140802235406) do
+ActiveRecord::Schema.define(version: 20140803163909) do
 
   create_table "banks", force: true do |t|
     t.string   "bank_name"
@@ -82,6 +82,16 @@ ActiveRecord::Schema.define(version: 20140802235406) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "employee_id"
+  end
+
+  create_table "employee_salaries", force: true do |t|
+    t.integer  "employee_id"
+    t.float    "rate_per_hour"
+    t.boolean  "is_active"
+    t.date     "date_from"
+    t.date     "date_to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "employee_vacations", force: true do |t|
@@ -171,6 +181,9 @@ ActiveRecord::Schema.define(version: 20140802235406) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "auth_token"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   create_table "vacations", force: true do |t|
