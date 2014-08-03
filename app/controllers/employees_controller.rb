@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, only: [:edit, :update]
+  before_filter :authorize, only: [:edit, :update, :destroy]
   
   # GET /employees
   # GET /employees.json
@@ -21,6 +21,8 @@ class EmployeesController < ApplicationController
     @employee_jobs = @employee.employee_jobs.build 
     @employee_educations = @employee.employee_educations.build 
     @employee_contacts = @employee.employee_contacts.build 
+    @employee_reviews = @employee.employee_reviews.build
+    @employee_vacations = @employee.employee_vacations.build
   end 
 
 
