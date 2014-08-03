@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140802012040) do
+ActiveRecord::Schema.define(version: 20140802235406) do
 
   create_table "banks", force: true do |t|
     t.string   "bank_name"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20140802012040) do
     t.string   "reviewed_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "employee_id"
   end
 
   create_table "employee_vacations", force: true do |t|
