@@ -15,10 +15,16 @@ class Employee < ActiveRecord::Base
   has_many :employee_educations , :dependent => :destroy, :autosave =>true, :inverse_of => :employee
   has_many :educations, :through => :employee_educations
   
-  has_many :employee_reviews, :dependent => :destroy, :autosave=> true, :inverse_of => :employee
-  has_many :review_types, :through => :employee_reviews
+  
+  has_many :employee_reviews, :dependent => :destroy, :autosave => true, :inverse_of => :employee
+  has_many :review_type, :through => :employee_reviews
+  
+  has_many :employee_vacations, :dependent => :destroy, :autosave => true, :inverse_of => :employee
+  has_many :vacations, :through => :employee_vacations
+  
   has_many :employee_contacts , :dependent => :destroy, :autosave =>true, :inverse_of => :employee
   has_many :relationships, :through => :employee_contacts
+  
   has_many :employee_jobs, :dependent => :destroy
 
 
@@ -26,7 +32,7 @@ class Employee < ActiveRecord::Base
   accepts_nested_attributes_for :employee_educations, :reject_if => :all_blank, allow_destroy: true
   accepts_nested_attributes_for :employee_contacts, :reject_if => :all_blank, allow_destroy: true
   accepts_nested_attributes_for :employee_jobs, :reject_if => :all_blank, allow_destroy: true
-
+  accepts_nested_attributes_for :employee_vacations, :reject_if => :all_blank, allow_destroy: true
   
   #image uploads 
   mount_uploader :image, ImageUploader
