@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/doabit/semantic-ui-sass.git
+  revision: d8084d26f5f7a80aff157d7eb357022ac9379963
+  specs:
+    semantic-ui-sass (0.16.1.0)
+      sass (~> 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -29,6 +36,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
+    autoprefixer-rails (2.2.0.20140727)
+      execjs
     awesome_print (1.2.0)
     bcrypt (3.1.7)
     bcrypt-ruby (3.1.5)
@@ -229,6 +238,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   awesome_print
   bcrypt-ruby
   better_errors
@@ -259,6 +269,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   selenium-webdriver
+  semantic-ui-sass!
   simple_form
   spring
   sqlite3
