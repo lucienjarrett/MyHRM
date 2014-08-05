@@ -6,9 +6,14 @@ class User < ActiveRecord::Base
     validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
     validates :password, presence: true, :on => :create
     validates :password, length: { minimum: 6 }, :allow_blank => true
+    validates :password, length: { minimum: 8 }, :allow_blank => false
     validates :password_confirmation, presence: true, :on => :create
     validates_uniqueness_of :email
+    validates_uniqueness_of :user_name
     validates_presence_of :password, :on => :create
+    validates_presence_of :user_name, :on=> :create
+    validates :first_name, :presence=> true
+    validates :last_name, :presence=> true
  
 
   def send_password_reset 

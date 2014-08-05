@@ -2,6 +2,7 @@
 //@import "bootstrap";
 @import "semantic-ui";
 // make all images responsive by default
+
 img {
   @extend .img-responsive;
   margin: 0 auto;
@@ -15,7 +16,7 @@ img {
 // create your own classes
 // to make views framework-neutral
 .column {
-  @extend .col-md-6;
+  @extend .ui.form.segment;
   @extend .text-center;
   }
 .form {
@@ -26,15 +27,15 @@ img {
   @extend .text-center;
   }
 .submit {
-  @extend .btn;
-  @extend .btn-primary;
+  @extend .ui;
+  @extend .ui.button;
   @extend .btn-lg;
   }
 // apply styles to HTML elements
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #eee;
+  background-color: white;
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
