@@ -1,7 +1,11 @@
-<%=simple_form_for @user do |f|%>
+<%=simple_form_for @user , :html=> {:class => "ui form segment"} do  |f|%>
 <%= f.error_notification %>
+
+<%=f.input :first_name %>
+<%=f.input :last_name %>
+<%=f.input :user_name %>
 <%=f.input :email %>
 <%=f.input :password, as: :password%>
 <%=f.input :password_confirmation, as: :password%>
-<%= f.button :submit%>
+<%= f.button :submit %>
 <% end %>

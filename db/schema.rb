@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140803163909) do
+ActiveRecord::Schema.define(version: 20140804234913) do
 
   create_table "banks", force: true do |t|
     t.string   "bank_name"
@@ -184,6 +184,10 @@ ActiveRecord::Schema.define(version: 20140803163909) do
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string   "user_name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.boolean  "is_active"
   end
 
   create_table "vacations", force: true do |t|

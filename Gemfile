@@ -17,8 +17,8 @@ gem 'simple_form'
 gem "rmagick", :require => false #http://railscasts.com/episodes/253-carrierwave-file-uploads
 gem "carrierwave"
 gem "bcrypt-ruby", :require => "bcrypt"
-
-
+gem 'autoprefixer-rails'
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 
 group :development do
   gem 'better_errors'
