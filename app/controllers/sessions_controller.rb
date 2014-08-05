@@ -4,8 +4,12 @@ class SessionsController < ApplicationController
   end
   
   def create
-    user = User.find_by_email(params[:email]) 
-    if user && user.authenticate(params[:password])
+    logger.debug "DEBUG email: "+ params[:signin][:email]
+    logger.debug "DEBUG password: "+ params[:signin][:password]
+    #logger.debug "DEBUG auth_token: "+ params[:signin][:auth_token]
+    
+    user = User.find_by_email(params[:signin][:email]) 
+    if user && user.authenticate(params[:signin][:password])
       if params[:remember_me]
         cookies.permanent[:auth_token] = user.auth_token
       else 
