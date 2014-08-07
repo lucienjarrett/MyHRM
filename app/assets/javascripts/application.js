@@ -18,3 +18,13 @@
 //= require bootstrap-sprockets
 //= require semantic-ui
 
+
+jQuery(function() {
+$(function() {
+  return $(".close.icon").on("click", function() {
+    $('.message.closable').fadeOut("slow");
+    return false;
+    console.log("This is a test i am working!")
+  });
+});
+}); 

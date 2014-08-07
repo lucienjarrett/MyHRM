@@ -4,7 +4,7 @@
 // make all images responsive by default
 
 img {
-  @extend .img-responsive;
+ // @extend .img-responsive;
   margin: 0 auto;
   }
 // override for the 'Home' navigation link
@@ -16,20 +16,20 @@ img {
 // create your own classes
 // to make views framework-neutral
 .column {
-  @extend .ui.form.segment;
-  @extend .text-center;
+  //@extend .ui.form.segment;
+  //@extend .text-center;
   }
 .form {
-  @extend .col-md-6;
+  //@extend .col-md-6;
   }
 .form-centered {
-  @extend .col-md-6;
-  @extend .text-center;
+//  @extend .col-md-6;
+//  @extend .text-center;
   }
 .submit {
   @extend .ui;
   @extend .ui.button;
-  @extend .btn-lg;
+ // @extend .btn-lg;
   }
 // apply styles to HTML elements
 // to make views framework-neutral
@@ -44,3 +44,7 @@ section {
   @extend .row;
   margin-top: 20px;
   }
+  .message.closable {
+    margin-left: 20%;
+    margin-right: 20%;
+   }

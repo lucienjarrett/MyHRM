@@ -1,5 +1,6 @@
 <h1>Sign In</h1>
 
+
 <%= simple_form_for :signin, url: sessions_path , :html=> {:class => "ui small form segment"} do |f| %>
   <%= f.input :email, :placeholder=> "Email" %>
   <%= f.input :password, :placeholder=> "Password" %>
