@@ -1,7 +1,7 @@
 <%# Rails flash messages styled for Semantic UI%>
 <% flash.each do |key, value| %>
   <% if value.is_a?(String) %>
-<div class="ui <%= key.to_s == 'notice' ? 'success' : 'error' %> <%="message"%>">
+<div id="message" class="ui <%= key.to_s == 'notice' ? 'success' : 'error' %> <%="message"%>">
     <i class="close icon"></i>
 		 <%= content_tag :div, value, :class => "header" %>
     <% value %>
