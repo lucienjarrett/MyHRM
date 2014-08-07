@@ -7,6 +7,7 @@ config.wrappers :semantic, tag: 'div', class: "field", error_class: 'error', hin
   b.optional :maxlength
   b.optional :pattern
   b.optional :min_max
+  b.optional :i
   b.use :hint,  wrap_with: { tag: 'div', class: 'hint' }
   b.use :error, wrap_with: { tag: 'div', class: 'ui red pointing above label error' }
 
