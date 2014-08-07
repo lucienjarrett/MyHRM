@@ -1,0 +1,10 @@
+<%# Rails flash messages styled for Bootstrap 3.0 %>
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+	<%= debug(name.to_s)%>
+    <div class="ui <%= name.to_s == 'notice' ? 'success' : 'danger' %> <%="message"%>">
+    <i class="close icon"></i>
+    <%= content_tag :div, msg, :class => "header" %>
+    </div>
+  <% end %>
+<% end %>

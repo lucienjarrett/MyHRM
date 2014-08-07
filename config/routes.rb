@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'reset', to: 'password_resets#create', as: 'reset'
   
   resources :users
   resources :sessions
@@ -21,5 +22,6 @@ Rails.application.routes.draw do
   resources :parishes
   resources :marital_statuses
   resources :employees   
-  root to: 'visitors#index'
+  #root to: 'visitors#index'
+  root to: 'sessions#new'
 end

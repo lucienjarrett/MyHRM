@@ -1,9 +1,6 @@
 <%= simple_form_for @employee, :html => {:multipart => true} do |f| %>
 <%= f.error_notification %>
 
-<% debug(@employee) %>
-<fieldset>
-	<legend>Personal Information</legend>
 	<%= f.input :image, as: :file %>    
 	<%= f.input :first_name, placeholder: 'John' %>
     <%= f.input :last_name, placeholder: 'Doe' %>  
@@ -25,7 +22,6 @@
 	<%= f.association :parish, label_method: :parish_name, value_method: :id, include_blank: false, prompt: "Choose a Parish" %>
 
 	<div class="form-actions">
-    <%= f.button :submit, :class => 'circular green ui button' %>
+    <%= f.button :submit %>
 	</div>
- </fieldset>
 <% end %>

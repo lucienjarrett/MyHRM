@@ -7,4 +7,15 @@ module ApplicationHelper
     end
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
+  
+=begin  
+  def flash_class(level)
+         case level
+           when 'notice' then "ui info message"
+           when 'success' then "ui success message"
+           when 'error' then "ui error message"
+           when 'alert' then "ui warning message"
+         end
+       end
+=end   
 end

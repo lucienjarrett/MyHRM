@@ -1,11 +1,26 @@
-<%=simple_form_for @user , :html=> {:class => "ui form segment"} do  |f|%>
+<%=simple_form_for @user  do  |f|%>
 <%= f.error_notification %>
 
+<div class="ui warning form segment">
+  <div class="ui warning message">
+    <div class="header">Could you check something!</div>
+    <ul class="list">
+      <!--li>You forgot your <b>first name</b></li>
+      <li>And also your <b>last name</b></li-->
+    </ul>
+  </div>
+	
+<div class="two fields">
 <%=f.input :first_name %>
 <%=f.input :last_name %>
+</div>
+<div class="two fields">
 <%=f.input :user_name %>
 <%=f.input :email %>
+</div>
+<div class="two fields">
 <%=f.input :password, as: :password%>
 <%=f.input :password_confirmation, as: :password%>
-<%= f.button :submit %>
+</div>
+<%= f.button :submit, :class=>"right attached ui button" %>
 <% end %>

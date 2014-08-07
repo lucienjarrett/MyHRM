@@ -1,5 +1,5 @@
 <%# navigation styled for Bootstrap 3.0 %>
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<!--nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -16,4 +16,18 @@
       </ul>
     </div>
   </div>
+</nav-->
+<nav class="ui menu">
+  <h3 class="header item">Title</h3>
+  <a class="active item">Home</a>
+  <a class="item">Link</a>
+  <a class="item">Link</a>
+  <span class="right floated text item">
+    Signed in as	
+		<% if current_user %>
+				<%= current_user.email %>
+				<% else %>
+		<p>user<p>
+		<% end %>
+  </span>
 </nav>
