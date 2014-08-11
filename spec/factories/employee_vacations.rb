@@ -1,7 +1,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :employee_vacation, :class => 'EmployeeVacations' do
+  factory :employee_vacation do #, :class => 'EmployeeVacations'
     employee_id 1
     date_from "2014-08-01"
     date_to "2014-08-01"
