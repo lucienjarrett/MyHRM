@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :employee_education do
-    association: employee
-    association: education
+  
   end
 end

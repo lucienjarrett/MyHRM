@@ -18,8 +18,10 @@ gem "rmagick", :require => false #http://railscasts.com/episodes/253-carrierwave
 gem "carrierwave"
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'autoprefixer-rails'
-gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+#gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 gem 'unicorn'
+#gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails'
+
 
 group :development do
   gem 'better_errors'
