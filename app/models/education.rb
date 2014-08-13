@@ -5,6 +5,8 @@ class Education < ActiveRecord::Base
   
   accepts_nested_attributes_for :employee_educations, :allow_destroy =>true, :reject_if => :all_blank
   accepts_nested_attributes_for :employees
+  
+  validates :name, presence: true
  
 
 end

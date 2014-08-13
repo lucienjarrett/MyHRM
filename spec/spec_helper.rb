@@ -21,7 +21,7 @@ begin
   # These two settings work together to allow you to limit a spec run
   # to individual examples or groups you care about by tagging them with
   # `:focus` metadata. When nothing is tagged with `:focus`, all examples
-  # get run.
+  # get run.  
   config.filter_run :focus
   config.run_all_when_everything_filtered = true
 
@@ -60,8 +60,11 @@ begin
     # For more details, see:
     #   - http://myronmars.to/n/dev-blog/2012/06/rspecs-new-expectation-syntax
     expectations.syntax = :expect
+    #expectations.syntax = :should
+    
   end
-
+  
+  
   # rspec-mocks config goes here. You can use an alternate test double
   # library (such as bogus or mocha) by changing the `mock_with` option here.
   config.mock_with :rspec do |mocks|

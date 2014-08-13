@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :department do
-    department_name "MyString"
-    is_active false
+    department_name {Faker::Name.name}
+    is_active {true}
   end
 end

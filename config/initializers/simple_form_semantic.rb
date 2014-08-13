@@ -31,6 +31,19 @@ config.wrappers :semantic_checkbox_slider, tag: 'div', class: "inline field", er
   b.use :label
 end
 
+#Added to display dropdown list boxes...
+config.wrappers :semantic_checkbox_dropdown, tag: 'div', class: "inline field", error_class: 'error', hint_class: 'with_hint' do |b|
+  b.use :html5
+  b.wrapper tag: 'div', class: 'ui selection dropdown' do |input|
+    input.use :input
+    input.wrapper tag: 'label' do |slide| end
+  end
+  b.use :label
+end
+
+
+
+
 config.wrappers :semantic_checkbox_toggle, tag: 'div', class: "inline field", error_class: 'error', hint_class: 'with_hint' do |b|
   b.use :html5
   b.wrapper tag: 'div', class: 'ui toggle checkbox' do |input|

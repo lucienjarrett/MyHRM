@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :employee_education do
-    references ""
-    references ""
+    association: employee
+    association: education
   end
 end

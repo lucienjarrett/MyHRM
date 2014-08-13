@@ -1,11 +1,11 @@
 <h1>Listing banks</h1>
 
-<table>
+<table class="ui collapsing table segment">
   <thead>
     <tr>
       <th>Bank name</th>
       <th>Is active</th>
-      <th colspan="3"></th>
+      <th colspan="3"> Actions</th>
     </tr>
   </thead>
 
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Bank', new_bank_path %>
+<%= link_to 'New Bank', new_bank_path, :class=>"ui green button" %>

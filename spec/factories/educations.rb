@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :education do
-    name "MyString"
-    is_active false
+    name {Faker::Name.name}
+    is_active {false}
   end
 end

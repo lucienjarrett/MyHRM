@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.2'
 gem 'rails', '4.1.1'
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.3'
@@ -19,6 +19,7 @@ gem "carrierwave"
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'autoprefixer-rails'
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+gem 'unicorn'
 
 group :development do
   gem 'better_errors'
@@ -39,6 +40,7 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+
 end
 group :test do
   gem 'capybara'
@@ -46,4 +48,5 @@ group :test do
   gem 'faker'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'rspec-collection_matchers'
 end

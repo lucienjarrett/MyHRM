@@ -2,10 +2,11 @@
 
 FactoryGirl.define do
   factory :employee_contact do
-    references ""
-    first_name "MyString"
-    last_name "MyString"
-    phone_number "MyString"
-    is_emergency_contact false
+   association :employee
+   association :relationship
+    first_name {Faker::Name.first_name}
+    last_name {Faker::Name.last_name}
+    phone_number {"8765779814"}
+    is_emergency_contact {false}
   end
 end
