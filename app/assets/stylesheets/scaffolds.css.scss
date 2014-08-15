@@ -1,13 +1,16 @@
+$font-family:"source-sans-pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+
 body {
   background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: $font-family;
+  color: #484c55;
   font-size: 13px;
   line-height: 18px;
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: $font-family;
   font-size: 13px;
   line-height: 18px;
 }
@@ -68,17 +71,3 @@ div {
   }
 }
 
-$navbarBackground: #555;
-$navbarBackgroundHighlight: #888;
-$navbarText: #eee;
-$navbarLinkColor: #eee;
-
-@import "bootstrap";
-
-body { padding-top: 60px; }
-
-//@import "bootstrap-responsive";
-
-.navbar .brand {
-  color: #FAFFB8;
-}
