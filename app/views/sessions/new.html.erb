@@ -1,12 +1,10 @@
-<h1>Sign In</h1>
 
-
-<%= simple_form_for :signin, url: sessions_path  do |f| %>
+<%= simple_form_for :signin, url: sessions_path, :html=>{:class=>"form-vertical"} do |f| %>
   <%= f.input :email, :placeholder=> "Email" %>
   <%= f.input :password, :placeholder=> "Password" %>
 	<%= link_to "Forgotten Password", new_password_reset_path %>
-  <%= f.input :remember_me, as: :boolean, :html=>{:class=>"ui checkbox", value: '1' }%>
-	<div class="field">
-		<div/>
-	<%= f.button :submit, "Sign In" %>
+	<%= f.input :remember_me, as: :boolean %>
+	
+	<div class="form-actions">
+	<%= f.button :submit, "Sign In", :class=>'btn' %>
 <% end %>

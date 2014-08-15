@@ -9,11 +9,12 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header>
-			
+    <header>			
       <%= render 'layouts/navigation' %>	
     </header>
+
     <main role="main">
+<div class="container">		
 			<% if current_user %>
 				Logged in as <%= current_user.email %>
 				<%= link_to "Log Out", logout_path %>
@@ -25,5 +26,5 @@
       <%= yield %>
     </main>
   </body>
-
+</div>
 </html>
