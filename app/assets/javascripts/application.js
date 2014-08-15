@@ -15,15 +15,8 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 
-
-jQuery(function() {
-$(function() {
-  return $(".close.icon").on("click", function() {
-    $("#message").fadeOut("slow");
-    return false;
-    console.log("This is a test i am working!")
-  });
-});
-}); 

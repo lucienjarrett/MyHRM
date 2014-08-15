@@ -1,0 +1,56 @@
+<%= simple_form_for @employee, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :first_name %>
+  <%= error_span(@employee[:first_name]) %>
+  <%= f.input :last_name %>
+  <%= error_span(@employee[:last_name]) %>
+  <%= f.input :middle_name %>
+  <%= error_span(@employee[:middle_name]) %>
+  <%= f.input :gender %>
+  <%= error_span(@employee[:gender]) %>
+  <%= f.input :dob %>
+  <%= error_span(@employee[:dob]) %>
+  <%= f.input :marital_status_id %>
+  <%= error_span(@employee[:marital_status_id]) %>
+  <%= f.input :trn %>
+  <%= error_span(@employee[:trn]) %>
+  <%= f.input :nis %>
+  <%= error_span(@employee[:nis]) %>
+  <%= f.input :email %>
+  <%= error_span(@employee[:email]) %>
+  <%= f.input :employee_number %>
+  <%= error_span(@employee[:employee_number]) %>
+  <%= f.input :image %>
+  <%= error_span(@employee[:image]) %>
+  <%= f.input :company_id %>
+  <%= error_span(@employee[:company_id]) %>
+  <%= f.input :department_id %>
+  <%= error_span(@employee[:department_id]) %>
+  <%= f.input :parish_id %>
+  <%= error_span(@employee[:parish_id]) %>
+  <%= f.input :location_id %>
+  <%= error_span(@employee[:location_id]) %>
+  <%= f.input :bank_id %>
+  <%= error_span(@employee[:bank_id]) %>
+  <%= f.input :home_address_1 %>
+  <%= error_span(@employee[:home_address_1]) %>
+  <%= f.input :home_address_2 %>
+  <%= error_span(@employee[:home_address_2]) %>
+  <%= f.input :city %>
+  <%= error_span(@employee[:city]) %>
+  <%= f.input :mobile_phone %>
+  <%= error_span(@employee[:mobile_phone]) %>
+  <%= f.input :work_phone %>
+  <%= error_span(@employee[:work_phone]) %>
+  <%= f.input :bank_account_number %>
+  <%= error_span(@employee[:bank_account_number]) %>
+  <%= f.input :position_id %>
+  <%= error_span(@employee[:position_id]) %>
+  <%= f.input :work_schedule_id %>
+  <%= error_span(@employee[:work_schedule_id]) %>
+  <%= f.input :status %>
+  <%= error_span(@employee[:status]) %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                employees_path, :class => 'btn btn-default' %>
+<% end %>
